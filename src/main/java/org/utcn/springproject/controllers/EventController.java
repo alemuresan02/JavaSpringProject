@@ -7,6 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.utcn.springproject.data.EventData;
 import org.utcn.springproject.models.Event;
+import org.utcn.springproject.models.EventType;
 
 import javax.validation.Valid;
 
@@ -25,6 +26,7 @@ public class EventController {
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
+        model.addAttribute("types", EventType.values());
         return "events/create";
     }
 
