@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.utcn.springproject.data.EventCategoryRepository;
 import org.utcn.springproject.data.EventRepository;
 import org.utcn.springproject.models.Event;
-import org.utcn.springproject.models.EventType;
 
 import javax.validation.Valid;
 
@@ -17,6 +17,9 @@ public class EventController {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private EventCategoryRepository eventCategoryRepository;
 
     @GetMapping
     public  String displayAllEvents(Model model) {
@@ -29,7 +32,7 @@ public class EventController {
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
-        model.addAttribute("types", EventType.values());
+        model.addAttribute("categories", eventCategoryRepository.findAll());
         return "events/create";
     }
 
