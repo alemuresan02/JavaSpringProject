@@ -7,12 +7,12 @@
 
 <table class="table table-stripped">
     <thead>
-        <tr>
-            <th>Event Name</th>
-        </tr>
+    <tr>
+        <th>Tag</th>
+    </tr>
     </thead>
-    <tr th:each="event : ${events}">
-        <td><a th:href="'/events/detail?eventId=' + ${event.id}" th:text="${event.name}"></a></td>
+    <tr th:each="tag : ${tags}">
+        <td><a th:text="${tag.name}" th:href="'/tags?categoryId=' + ${tag.id}"></a></td>
     </tr>
 </table>
 
