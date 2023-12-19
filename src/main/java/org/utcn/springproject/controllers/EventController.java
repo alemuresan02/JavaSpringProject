@@ -1,5 +1,6 @@
 package org.utcn.springproject.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +14,6 @@ import org.utcn.springproject.models.EventCategory;
 import org.utcn.springproject.models.Tag;
 import org.utcn.springproject.models.dto.EventTagDTO;
 
-import javax.swing.text.html.Option;
-import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller

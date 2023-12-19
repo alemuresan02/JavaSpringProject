@@ -1,9 +1,9 @@
 package org.utcn.springproject.models.dto;
 
+import jakarta.validation.constraints.NotNull;
 import org.utcn.springproject.models.Event;
 import org.utcn.springproject.models.Tag;
 
-import javax.validation.constraints.NotNull;
 
 public class EventTagDTO {
 

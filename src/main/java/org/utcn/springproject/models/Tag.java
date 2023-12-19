@@ -2,8 +2,8 @@ package org.utcn.springproject.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.Size;
 
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
