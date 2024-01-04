@@ -3,15 +3,15 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: navigation"></header>
 
 <form method="post">
 
-    <th:block th:each="event : ${events}">
+    <th:block th:each="book : ${books}">
         <div class="form-group">
             <label>
-                <span th:text="${event.name}"></span>
-                <input type="checkbox" name="eventIds" th:value="${event.id}" class="form-control">
+                <span th:text="${book.title}"></span>
+                <input type="checkbox" name="bookIds" th:value="${book.id}" class="form-control">
             </label>
         </div>
     </th:block>
