@@ -17,6 +17,8 @@ public class User extends AbstractEntity {
             message = "Parola trebuie să conțină cel puțin 8 caractere, inclusiv o literă mare, una mică, un număr și un caracter special.")
     private String password;
 
+    private int role;
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -38,6 +40,14 @@ public class User extends AbstractEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     @Override

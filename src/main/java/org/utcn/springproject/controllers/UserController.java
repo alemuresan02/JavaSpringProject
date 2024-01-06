@@ -10,7 +10,7 @@ import org.utcn.springproject.data.UserRepository;
 import org.utcn.springproject.models.User;
 
 @Controller
-@RequestMapping("users")
+@RequestMapping("home/users")
 public class UserController {
 
     @Autowired
@@ -39,8 +39,10 @@ public class UserController {
             return "users/create";
         }
 
+        newUser.setRole(2);
+
         userRepository.save(newUser);
-        return "redirect:/users";
+        return "redirect:/home/users";
     }
 
     @GetMapping("delete")

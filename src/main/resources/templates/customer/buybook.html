@@ -3,18 +3,16 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header>
+<nav>
     <h1 th:text="${title}">Bookstore</h1>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books">All Books</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books/create">Create Books</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books/delete">Delete Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home">LogOut</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/customer">All Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/customer/buybook">Buy Books</a></li>
     </ul>
-</header>
+</nav>
 
 <form method="post">
-
     <th:block th:each="book : ${books}">
         <div class="form-group">
             <label>
@@ -23,9 +21,7 @@
             </label>
         </div>
     </th:block>
-
-
-    <input type="submit" value="Delete" class="btn btn-danger">
+    <input type="submit" value="Buy" class="btn btn-danger">
 </form>
 
 </body>

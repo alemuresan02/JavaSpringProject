@@ -11,7 +11,7 @@ import org.utcn.springproject.models.Book;
 import org.utcn.springproject.models.BookType;
 
 @Controller
-@RequestMapping("books")
+@RequestMapping("home/books")
 public class BookController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class BookController {
         }
 
         bookRepository.save(newBook);
-        return "redirect:/books";
+        return "redirect:/home/books";
     }
 
     @GetMapping("delete")
@@ -60,7 +60,7 @@ public class BookController {
             }
         }
 
-        return "redirect:/books";
+        return "redirect:/home/books";
     }
 
 }

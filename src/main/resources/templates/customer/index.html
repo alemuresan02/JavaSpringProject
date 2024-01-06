@@ -7,22 +7,21 @@
     <h1 th:text="${title}">Bookstore</h1>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/home">LogOut</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books">All Books</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books/create">Create Books</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/books/delete">Delete Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/customer">All Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/customer/buybook">Buy Books</a></li>
     </ul>
 </nav>
 
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Published Date</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Type</th>
-        </tr>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published Date</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Type</th>
+    </tr>
     </thead>
     <tr th:each="book : ${books}">
         <td th:text="${book.title}"></td>

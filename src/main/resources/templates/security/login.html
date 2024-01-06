@@ -7,11 +7,12 @@
     <h1 th:text="${title}">Bookstore</h1>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/users">All Users</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/users/create">Create Users</a></li>
-        <li class="nav-item"><a class="nav-link" href="/home/users/delete">Delete Users</a></li>
     </ul>
 </header>
+
+<div th:if="${userDoesNotExistError}">
+    <p class="error" th:text="${userDoesNotExistError}"></p>
+</div>
 
 <form method="post">
     <div class="form-group">
@@ -27,7 +28,7 @@
         <p class="error" th:errors="${user.password}"></p>
     </div>
     <div class="form-group">
-        <input type="submit" value="Create User" class="btn btn-success">
+        <input type="submit" value="LogIn" class="btn btn-success">
     </div>
 </form>
 

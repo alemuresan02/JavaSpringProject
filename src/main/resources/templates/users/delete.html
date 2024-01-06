@@ -3,7 +3,15 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header th:replace="fragments :: navigation"></header>
+<header>
+    <h1 th:text="${title}">Bookstore</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/users">All Users</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/users/create">Create Users</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/users/delete">Delete Users</a></li>
+    </ul>
+</header>
 
 <form method="post">
 
