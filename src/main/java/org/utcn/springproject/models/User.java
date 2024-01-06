@@ -13,8 +13,8 @@ public class User extends AbstractEntity {
     private String username;
 
     @NotBlank(message = "Password is required!")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
-            message = "Parola trebuie să conțină cel puțin 8 caractere, inclusiv o literă mare, una mică, un număr și un caracter special.")
+    //@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
+    //        message = "Parola trebuie să conțină cel puțin 8 caractere, inclusiv o literă mare, una mică, un număr și un caracter special.")
     private String password;
 
     private int role;

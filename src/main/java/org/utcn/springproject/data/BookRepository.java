@@ -12,5 +12,5 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
     @Modifying
     @Transactional
     @Query("UPDATE Book b SET b.quantity = b.quantity - 1 WHERE b.id = :bookId AND b.quantity > 0")
-    int decrementBookQuantity(int bookId);
+    void decrementBookQuantity(int bookId);
 }

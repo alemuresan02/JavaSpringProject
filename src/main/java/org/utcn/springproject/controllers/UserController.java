@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.utcn.springproject.data.UserRepository;
 import org.utcn.springproject.models.User;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+
 @Controller
 @RequestMapping("home/users")
 public class UserController {
@@ -40,6 +43,7 @@ public class UserController {
         }
 
         newUser.setRole(2);
+        newUser.setPassword(hashPassword(newUser.getPassword()));
 
         userRepository.save(newUser);
         return "redirect:/home/users";
@@ -61,6 +65,27 @@ public class UserController {
         }
 
         return "users/delete";
+    }
+
+    public String hashPassword(String password) {
+        try {
+            // Sercured Hash Algorithm - 256
+            // 1 byte = 8 biți
+            // 1 byte = 1 char
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
 }

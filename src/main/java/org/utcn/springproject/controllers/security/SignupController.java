@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.utcn.springproject.data.UserRepository;
 import org.utcn.springproject.models.User;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Optional;
 
 @Controller
@@ -38,6 +40,7 @@ public class SignupController {
         }
 
         newUser.setRole(3);
+        newUser.setPassword(hashPassword(newUser.getPassword()));
 
         Optional<User> userOptional = userRepository.findByUsernameAndPassword(newUser.getUsername(), newUser.getPassword());
         if (userOptional.isPresent()) {
@@ -55,6 +58,27 @@ public class SignupController {
 
         System.out.println("Account created successfully");
         return "redirect:/home/customer";
+    }
+
+    public String hashPassword(String password) {
+        try {
+            // Sercured Hash Algorithm - 256
+            // 1 byte = 8 biți
+            // 1 byte = 1 char
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
 }
