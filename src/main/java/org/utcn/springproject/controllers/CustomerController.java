@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.utcn.springproject.data.BookRepository;
 import org.utcn.springproject.models.Book;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Optional;
 
 @Controller

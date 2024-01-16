@@ -15,14 +15,14 @@
 
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Published Date</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Type</th>
-        </tr>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published Date</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Type</th>
+    </tr>
     </thead>
     <tr th:each="book : ${books}">
         <td th:text="${book.title}"></td>
